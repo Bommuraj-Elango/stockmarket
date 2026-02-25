@@ -1,0 +1,88 @@
+:root {
+  --bg: #0f172a;
+  --card: #111c32;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --primary: #2b7fff;
+  --danger: #ef4444;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, Arial;
+  background: linear-gradient(180deg, #0b1223, #111827);
+  color: var(--text);
+}
+input, textarea, button {
+  border-radius: 10px;
+  border: 1px solid #243449;
+  background: #0b1424;
+  color: var(--text);
+  padding: 10px;
+}
+button {
+  cursor: pointer;
+  background: var(--primary);
+  border: none;
+}
+button.danger { background: var(--danger); }
+
+.auth-page { min-height: 100vh; display: grid; place-items: center; }
+.auth-card {
+  width: min(500px, 95vw);
+  background: var(--card);
+  padding: 24px;
+  border-radius: 16px;
+}
+.toggles { display: flex; gap: 8px; margin-bottom: 8px; }
+.toggles button { flex: 1; background: #1d2b45; }
+.toggles .active { background: var(--primary); }
+.auth-card form { display: grid; gap: 10px; }
+.error { color: #fb7185; }
+
+.layout { display: grid; grid-template-columns: 250px 1fr; min-height: 100vh; }
+.sidebar {
+  padding: 20px;
+  border-right: 1px solid #223149;
+  background: #0b1424;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.sidebar nav { display: grid; gap: 8px; }
+.sidebar a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 10px;
+  background: #16243a;
+}
+.sidebar a.active { background: var(--primary); }
+.content { padding: 20px; display: grid; gap: 18px; }
+
+.card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 18px;
+  border: 1px solid #1f2f4a;
+}
+.grid-form { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+.grid-form textarea { grid-column: 1 / -1; }
+.grid-form button { width: max-content; }
+.cards-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
+.metric-card {
+  background: #0a1425;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid #253a58;
+}
+.metric-card.wide { grid-column: span 2; }
+table { width: 100%; border-collapse: collapse; }
+th, td { border-bottom: 1px solid #273952; padding: 10px; text-align: left; }
+td button, td a { margin-right: 8px; }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { border-right: none; border-bottom: 1px solid #223149; }
+}
